@@ -1,0 +1,24 @@
+{
+  "name": "root",
+  "private": true,
+  "devDependencies": {
+    "commitizen": "4.1.2",
+    "cz-conventional-changelog": "3.2.0",
+    "husky": "4.2.5",
+    "lerna": "^3.22.1"
+  },
+  "scripts": {
+    "commit": "npx git-cz"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lerna run format && lerna run lint",
+      "pre-push": "lerna run test && lerna run format && lerna run lint"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
